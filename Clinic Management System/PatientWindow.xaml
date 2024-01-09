@@ -1,0 +1,20 @@
+﻿<Window x:Class="Clinic_Management_System.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clinic_Management_System"
+        mc:Ignorable="d"
+        Title="PatientWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF582723">
+        <ListBox x:Name="lbResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,97,42,98" SelectionChanged="lbResults_SelectionChanged"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,420,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
+        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="19,420,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnRegisterPatient_Click" />
+        <Label Content="Patient's Name" HorizontalAlignment="Left" Margin="19,9,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="txtPatientName" HorizontalAlignment="Left" Margin="19,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="25"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="326,35,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010"/>
+        <ComboBox x:Name="cbFilter" HorizontalAlignment="Left" Margin="505,35,0,0" VerticalAlignment="Top" Width="182" Height="25" BorderBrush="White"/>
+        <Label Content="Search By:" HorizontalAlignment="Left" Margin="505,9,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="78" Source="/Resource-Logo.png" Margin="705,4,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
+    </Grid>
+</Window>
