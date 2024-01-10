@@ -30,6 +30,7 @@ namespace Clinic_Management_System
         {
             InitializeComponent();
             btnUpdate.IsEnabled = false;
+            Fill();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,12 @@ namespace Clinic_Management_System
             {
                 db_con.uspAddPatient(txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, txtType.Text, txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
                     , txtAddress.Text);
+
+                // USP Add Adviser
+
+                // USP Add Emergency Contact
+
+
                 MessageBox.Show("You have successfully added a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
                 db_con.uspInsertLogs(ConstantValues.UID, "Added a patient");

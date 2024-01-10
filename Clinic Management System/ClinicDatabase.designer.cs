@@ -125,25 +125,11 @@ namespace Clinic_Management_System
 			return ((ISingleResult<uspSelectAllUserResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByBrandName")]
-		public ISingleResult<uspSelectMedicineByBrandNameResult> uspSelectMedicineByBrandName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrandName", DbType="NVarChar(100)")] string brandName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), brandName);
-			return ((ISingleResult<uspSelectMedicineByBrandNameResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByExpDate")]
 		public ISingleResult<uspSelectMedicineByExpDateResult> uspSelectMedicineByExpDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ExpirationDate", DbType="Date")] System.Nullable<System.DateTime> expirationDate)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), expirationDate);
 			return ((ISingleResult<uspSelectMedicineByExpDateResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByGenericName")]
-		public ISingleResult<uspSelectMedicineByGenericNameResult> uspSelectMedicineByGenericName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GenericName", DbType="NVarChar(MAX)")] string genericName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), genericName);
-			return ((ISingleResult<uspSelectMedicineByGenericNameResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByManufacturer")]
@@ -219,6 +205,34 @@ namespace Clinic_Management_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<uspSelectAllStudentAdviserResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectPatientByFullName")]
+		public ISingleResult<uspSelectPatientByFullNameResult1> uspSelectPatientByFullName1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientFullName", DbType="NVarChar(100)")] string patientFullName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientFullName);
+			return ((ISingleResult<uspSelectPatientByFullNameResult1>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectPatientByAge")]
+		public ISingleResult<uspSelectPatientByAgeResult1> uspSelectPatientByAge1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Age", DbType="Int")] System.Nullable<int> age)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), age);
+			return ((ISingleResult<uspSelectPatientByAgeResult1>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByGenericName")]
+		public ISingleResult<uspSelectMedicineByGenericNameResult> uspSelectMedicineByGenericName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GenericName", DbType="NVarChar(MAX)")] string genericName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), genericName);
+			return ((ISingleResult<uspSelectMedicineByGenericNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectMedicineByBrandName")]
+		public ISingleResult<uspSelectMedicineByBrandNameResult> uspSelectMedicineByBrandName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrandName", DbType="NVarChar(100)")] string brandName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), brandName);
+			return ((ISingleResult<uspSelectMedicineByBrandNameResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -704,158 +718,6 @@ namespace Clinic_Management_System
 		}
 	}
 	
-	public partial class uspSelectMedicineByBrandNameResult
-	{
-		
-		private int _MedicineID;
-		
-		private string _MedicineName;
-		
-		private string _MedicineType;
-		
-		private System.DateTime _MedExpDate;
-		
-		private string _MedManufacturer;
-		
-		private int _MedQty;
-		
-		private string _MedStatus;
-		
-		private System.DateTime _MedLastUpdated;
-		
-		public uspSelectMedicineByBrandNameResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineID", DbType="Int NOT NULL")]
-		public int MedicineID
-		{
-			get
-			{
-				return this._MedicineID;
-			}
-			set
-			{
-				if ((this._MedicineID != value))
-				{
-					this._MedicineID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string MedicineName
-		{
-			get
-			{
-				return this._MedicineName;
-			}
-			set
-			{
-				if ((this._MedicineName != value))
-				{
-					this._MedicineName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineType", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string MedicineType
-		{
-			get
-			{
-				return this._MedicineType;
-			}
-			set
-			{
-				if ((this._MedicineType != value))
-				{
-					this._MedicineType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedExpDate", DbType="Date NOT NULL")]
-		public System.DateTime MedExpDate
-		{
-			get
-			{
-				return this._MedExpDate;
-			}
-			set
-			{
-				if ((this._MedExpDate != value))
-				{
-					this._MedExpDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedManufacturer", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string MedManufacturer
-		{
-			get
-			{
-				return this._MedManufacturer;
-			}
-			set
-			{
-				if ((this._MedManufacturer != value))
-				{
-					this._MedManufacturer = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedQty", DbType="Int NOT NULL")]
-		public int MedQty
-		{
-			get
-			{
-				return this._MedQty;
-			}
-			set
-			{
-				if ((this._MedQty != value))
-				{
-					this._MedQty = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MedStatus
-		{
-			get
-			{
-				return this._MedStatus;
-			}
-			set
-			{
-				if ((this._MedStatus != value))
-				{
-					this._MedStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedLastUpdated", DbType="DateTime NOT NULL")]
-		public System.DateTime MedLastUpdated
-		{
-			get
-			{
-				return this._MedLastUpdated;
-			}
-			set
-			{
-				if ((this._MedLastUpdated != value))
-				{
-					this._MedLastUpdated = value;
-				}
-			}
-		}
-	}
-	
 	public partial class uspSelectMedicineByExpDateResult
 	{
 		
@@ -876,158 +738,6 @@ namespace Clinic_Management_System
 		private System.DateTime _MedLastUpdated;
 		
 		public uspSelectMedicineByExpDateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineID", DbType="Int NOT NULL")]
-		public int MedicineID
-		{
-			get
-			{
-				return this._MedicineID;
-			}
-			set
-			{
-				if ((this._MedicineID != value))
-				{
-					this._MedicineID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string MedicineName
-		{
-			get
-			{
-				return this._MedicineName;
-			}
-			set
-			{
-				if ((this._MedicineName != value))
-				{
-					this._MedicineName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineType", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string MedicineType
-		{
-			get
-			{
-				return this._MedicineType;
-			}
-			set
-			{
-				if ((this._MedicineType != value))
-				{
-					this._MedicineType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedExpDate", DbType="Date NOT NULL")]
-		public System.DateTime MedExpDate
-		{
-			get
-			{
-				return this._MedExpDate;
-			}
-			set
-			{
-				if ((this._MedExpDate != value))
-				{
-					this._MedExpDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedManufacturer", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string MedManufacturer
-		{
-			get
-			{
-				return this._MedManufacturer;
-			}
-			set
-			{
-				if ((this._MedManufacturer != value))
-				{
-					this._MedManufacturer = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedQty", DbType="Int NOT NULL")]
-		public int MedQty
-		{
-			get
-			{
-				return this._MedQty;
-			}
-			set
-			{
-				if ((this._MedQty != value))
-				{
-					this._MedQty = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MedStatus
-		{
-			get
-			{
-				return this._MedStatus;
-			}
-			set
-			{
-				if ((this._MedStatus != value))
-				{
-					this._MedStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedLastUpdated", DbType="DateTime NOT NULL")]
-		public System.DateTime MedLastUpdated
-		{
-			get
-			{
-				return this._MedLastUpdated;
-			}
-			set
-			{
-				if ((this._MedLastUpdated != value))
-				{
-					this._MedLastUpdated = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelectMedicineByGenericNameResult
-	{
-		
-		private int _MedicineID;
-		
-		private string _MedicineName;
-		
-		private string _MedicineType;
-		
-		private System.DateTime _MedExpDate;
-		
-		private string _MedManufacturer;
-		
-		private int _MedQty;
-		
-		private string _MedStatus;
-		
-		private System.DateTime _MedLastUpdated;
-		
-		public uspSelectMedicineByGenericNameResult()
 		{
 		}
 		
@@ -2237,6 +1947,650 @@ namespace Clinic_Management_System
 				if ((this._AdviserDept != value))
 				{
 					this._AdviserDept = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectPatientByFullNameResult1
+	{
+		
+		private int _PatientID;
+		
+		private string _PatientName;
+		
+		private int _PatientAge;
+		
+		private string _PatientGender;
+		
+		private string _PatientType;
+		
+		private string _PatientDesc;
+		
+		private string _PatientNum;
+		
+		private string _PatientEmail;
+		
+		private string _PatientAddress;
+		
+		public uspSelectPatientByFullNameResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientName
+		{
+			get
+			{
+				return this._PatientName;
+			}
+			set
+			{
+				if ((this._PatientName != value))
+				{
+					this._PatientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAge", DbType="Int NOT NULL")]
+		public int PatientAge
+		{
+			get
+			{
+				return this._PatientAge;
+			}
+			set
+			{
+				if ((this._PatientAge != value))
+				{
+					this._PatientAge = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientGender", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientGender
+		{
+			get
+			{
+				return this._PatientGender;
+			}
+			set
+			{
+				if ((this._PatientGender != value))
+				{
+					this._PatientGender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientType
+		{
+			get
+			{
+				return this._PatientType;
+			}
+			set
+			{
+				if ((this._PatientType != value))
+				{
+					this._PatientType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientDesc
+		{
+			get
+			{
+				return this._PatientDesc;
+			}
+			set
+			{
+				if ((this._PatientDesc != value))
+				{
+					this._PatientDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
+		public string PatientNum
+		{
+			get
+			{
+				return this._PatientNum;
+			}
+			set
+			{
+				if ((this._PatientNum != value))
+				{
+					this._PatientNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientEmail
+		{
+			get
+			{
+				return this._PatientEmail;
+			}
+			set
+			{
+				if ((this._PatientEmail != value))
+				{
+					this._PatientEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PatientAddress
+		{
+			get
+			{
+				return this._PatientAddress;
+			}
+			set
+			{
+				if ((this._PatientAddress != value))
+				{
+					this._PatientAddress = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectPatientByAgeResult1
+	{
+		
+		private int _PatientID;
+		
+		private string _PatientName;
+		
+		private int _PatientAge;
+		
+		private string _PatientGender;
+		
+		private string _PatientType;
+		
+		private string _PatientDesc;
+		
+		private string _PatientNum;
+		
+		private string _PatientEmail;
+		
+		private string _PatientAddress;
+		
+		public uspSelectPatientByAgeResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientName
+		{
+			get
+			{
+				return this._PatientName;
+			}
+			set
+			{
+				if ((this._PatientName != value))
+				{
+					this._PatientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAge", DbType="Int NOT NULL")]
+		public int PatientAge
+		{
+			get
+			{
+				return this._PatientAge;
+			}
+			set
+			{
+				if ((this._PatientAge != value))
+				{
+					this._PatientAge = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientGender", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientGender
+		{
+			get
+			{
+				return this._PatientGender;
+			}
+			set
+			{
+				if ((this._PatientGender != value))
+				{
+					this._PatientGender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientType
+		{
+			get
+			{
+				return this._PatientType;
+			}
+			set
+			{
+				if ((this._PatientType != value))
+				{
+					this._PatientType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientDesc
+		{
+			get
+			{
+				return this._PatientDesc;
+			}
+			set
+			{
+				if ((this._PatientDesc != value))
+				{
+					this._PatientDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
+		public string PatientNum
+		{
+			get
+			{
+				return this._PatientNum;
+			}
+			set
+			{
+				if ((this._PatientNum != value))
+				{
+					this._PatientNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientEmail
+		{
+			get
+			{
+				return this._PatientEmail;
+			}
+			set
+			{
+				if ((this._PatientEmail != value))
+				{
+					this._PatientEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PatientAddress
+		{
+			get
+			{
+				return this._PatientAddress;
+			}
+			set
+			{
+				if ((this._PatientAddress != value))
+				{
+					this._PatientAddress = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectMedicineByGenericNameResult
+	{
+		
+		private int _MedicineID;
+		
+		private string _MedicineName;
+		
+		private string _MedicineType;
+		
+		private System.DateTime _MedExpDate;
+		
+		private string _MedManufacturer;
+		
+		private int _MedQty;
+		
+		private string _MedStatus;
+		
+		private System.DateTime _MedLastUpdated;
+		
+		public uspSelectMedicineByGenericNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineID", DbType="Int NOT NULL")]
+		public int MedicineID
+		{
+			get
+			{
+				return this._MedicineID;
+			}
+			set
+			{
+				if ((this._MedicineID != value))
+				{
+					this._MedicineID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string MedicineName
+		{
+			get
+			{
+				return this._MedicineName;
+			}
+			set
+			{
+				if ((this._MedicineName != value))
+				{
+					this._MedicineName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineType", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MedicineType
+		{
+			get
+			{
+				return this._MedicineType;
+			}
+			set
+			{
+				if ((this._MedicineType != value))
+				{
+					this._MedicineType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedExpDate", DbType="Date NOT NULL")]
+		public System.DateTime MedExpDate
+		{
+			get
+			{
+				return this._MedExpDate;
+			}
+			set
+			{
+				if ((this._MedExpDate != value))
+				{
+					this._MedExpDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedManufacturer", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MedManufacturer
+		{
+			get
+			{
+				return this._MedManufacturer;
+			}
+			set
+			{
+				if ((this._MedManufacturer != value))
+				{
+					this._MedManufacturer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedQty", DbType="Int NOT NULL")]
+		public int MedQty
+		{
+			get
+			{
+				return this._MedQty;
+			}
+			set
+			{
+				if ((this._MedQty != value))
+				{
+					this._MedQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MedStatus
+		{
+			get
+			{
+				return this._MedStatus;
+			}
+			set
+			{
+				if ((this._MedStatus != value))
+				{
+					this._MedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedLastUpdated", DbType="DateTime NOT NULL")]
+		public System.DateTime MedLastUpdated
+		{
+			get
+			{
+				return this._MedLastUpdated;
+			}
+			set
+			{
+				if ((this._MedLastUpdated != value))
+				{
+					this._MedLastUpdated = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectMedicineByBrandNameResult
+	{
+		
+		private int _MedicineID;
+		
+		private string _MedicineName;
+		
+		private string _MedicineType;
+		
+		private System.DateTime _MedExpDate;
+		
+		private string _MedManufacturer;
+		
+		private int _MedQty;
+		
+		private string _MedStatus;
+		
+		private System.DateTime _MedLastUpdated;
+		
+		public uspSelectMedicineByBrandNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineID", DbType="Int NOT NULL")]
+		public int MedicineID
+		{
+			get
+			{
+				return this._MedicineID;
+			}
+			set
+			{
+				if ((this._MedicineID != value))
+				{
+					this._MedicineID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string MedicineName
+		{
+			get
+			{
+				return this._MedicineName;
+			}
+			set
+			{
+				if ((this._MedicineName != value))
+				{
+					this._MedicineName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicineType", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MedicineType
+		{
+			get
+			{
+				return this._MedicineType;
+			}
+			set
+			{
+				if ((this._MedicineType != value))
+				{
+					this._MedicineType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedExpDate", DbType="Date NOT NULL")]
+		public System.DateTime MedExpDate
+		{
+			get
+			{
+				return this._MedExpDate;
+			}
+			set
+			{
+				if ((this._MedExpDate != value))
+				{
+					this._MedExpDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedManufacturer", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MedManufacturer
+		{
+			get
+			{
+				return this._MedManufacturer;
+			}
+			set
+			{
+				if ((this._MedManufacturer != value))
+				{
+					this._MedManufacturer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedQty", DbType="Int NOT NULL")]
+		public int MedQty
+		{
+			get
+			{
+				return this._MedQty;
+			}
+			set
+			{
+				if ((this._MedQty != value))
+				{
+					this._MedQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MedStatus
+		{
+			get
+			{
+				return this._MedStatus;
+			}
+			set
+			{
+				if ((this._MedStatus != value))
+				{
+					this._MedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedLastUpdated", DbType="DateTime NOT NULL")]
+		public System.DateTime MedLastUpdated
+		{
+			get
+			{
+				return this._MedLastUpdated;
+			}
+			set
+			{
+				if ((this._MedLastUpdated != value))
+				{
+					this._MedLastUpdated = value;
 				}
 			}
 		}

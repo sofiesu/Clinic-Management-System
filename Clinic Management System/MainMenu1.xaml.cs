@@ -20,6 +20,7 @@ namespace Clinic_Management_System
     public partial class MainMenu1 : Window
     {
         ConstantValues ConstantValues = new ConstantValues();
+        ClinicDatabaseDataContext db_con = ConstantValues.DBConnectionString;
 
         public MainMenu1()
         {
@@ -29,6 +30,7 @@ namespace Clinic_Management_System
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
+            db_con.uspInsertLogs(ConstantValues.UID, "Logged Out");
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
@@ -59,6 +61,13 @@ namespace Clinic_Management_System
         {
             EditPatientWindow editPatientWindow = new EditPatientWindow();
             editPatientWindow.Show();
+            this.Close();
+        }
+
+        private void btnClinicVisits_Click(object sender, RoutedEventArgs e)
+        {
+            ClinicVisits clinicVisits = new ClinicVisits();
+            clinicVisits.Show();
             this.Close();
         }
     }

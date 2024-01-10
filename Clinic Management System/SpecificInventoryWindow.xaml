@@ -10,20 +10,21 @@
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="314" Width="644" VerticalAlignment="Center" Fill="#FFEBBC38" Opacity="0.8"/>
         <Label Content="Details" HorizontalAlignment="Left" Margin="374,56,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="49,99,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedName" HorizontalAlignment="Left" Margin="49,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="Manufacturer" HorizontalAlignment="Left" Margin="374,97,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Quantity" HorizontalAlignment="Left" Margin="49,221,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedQuantity" HorizontalAlignment="Left" Margin="49,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="Generic Name" HorizontalAlignment="Left" Margin="49,159,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedName_Copy" HorizontalAlignment="Left" Margin="49,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="49,73,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedName_Copy1" HorizontalAlignment="Left" Margin="374,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="Expiration Date" HorizontalAlignment="Left" Margin="374,160,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedName_Copy2" HorizontalAlignment="Left" Margin="374,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="Status" HorizontalAlignment="Left" Margin="135,221,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedQuantity_Copy" HorizontalAlignment="Left" Margin="136,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="30" BorderBrush="#FFB5B5B5"/>
         <Label Content="Last Updated:" HorizontalAlignment="Left" Margin="374,221,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedName_Copy3" HorizontalAlignment="Left" Margin="374,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Height="30" BorderBrush="#FFB5B5B5" />
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="556,297,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FF582723" Foreground="White" Click="btnBack_Click" />
+        <Label x:Name="lbl_ID" Content="" HorizontalAlignment="Left" Margin="78,73,0,0" VerticalAlignment="Top" Foreground="White" Width="250"/>
+        <TextBlock x:Name="txtName" HorizontalAlignment="Left" Margin="49,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="279" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtGenericName" HorizontalAlignment="Left" Margin="49,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="279" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtManufacturer" HorizontalAlignment="Left" Margin="375,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="279" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtExpDate" HorizontalAlignment="Left" Margin="374,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="279" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtLastUpd" HorizontalAlignment="Left" Margin="374,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="279" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtQuantity" HorizontalAlignment="Left" Margin="49,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.569" Height="28" Width="69" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtStatus" HorizontalAlignment="Left" Margin="135,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.569" Height="28" Width="193" Background="White" Opacity="0.5"/>
     </Grid>
 </Window>

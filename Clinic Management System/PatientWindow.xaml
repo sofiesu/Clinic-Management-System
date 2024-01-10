@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="PatientWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF582723">
-        <ListBox x:Name="lbResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,97,42,98" SelectionChanged="lbResults_SelectionChanged"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,420,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
-        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="19,420,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnRegisterPatient_Click" />
-        <Label Content="Patient's Name" HorizontalAlignment="Left" Margin="19,9,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtPatientName" HorizontalAlignment="Left" Margin="19,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="25"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="326,35,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010"/>
-        <ComboBox x:Name="cbFilter" HorizontalAlignment="Left" Margin="505,35,0,0" VerticalAlignment="Top" Width="182" Height="25" BorderBrush="White"/>
-        <Label Content="Search By:" HorizontalAlignment="Left" Margin="505,9,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ListBox x:Name="lbPatientResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,107,42,88" SelectionChanged="lbResults_SelectionChanged"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,430,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
+        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="19,430,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnRegisterPatient_Click" />
+        <Label Content="Patient's Name" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="txtPatientName" HorizontalAlignment="Left" Margin="19,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="25"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="326,38,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010" Click="btnSearch_Click"/>
+        <ComboBox x:Name="cbAge" HorizontalAlignment="Left" Margin="63,74,0,0" VerticalAlignment="Top" Width="52" Height="24" BorderBrush="White" SelectionChanged="cbAge_SelectionChanged"/>
+        <Label Content="Age" HorizontalAlignment="Left" Margin="13,72,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Image HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="78" Source="/Resource-Logo.png" Margin="705,4,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
+        <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="182,73,0,0" VerticalAlignment="Top" Width="62" Height="25" BorderBrush="White" SelectionChanged="cbGender_SelectionChanged"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="132,72,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="cbType" HorizontalAlignment="Left" Margin="306,73,0,0" VerticalAlignment="Top" Width="96" Height="25" BorderBrush="White" SelectionChanged="cbType_SelectionChanged"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="256,72,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </Window>

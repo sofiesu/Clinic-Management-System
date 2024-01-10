@@ -14,7 +14,7 @@
         <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top"/>
         <Label x:Name="AdminFN" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="125,57,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="40,28,0,0" VerticalAlignment="Top" Width="100" Source="/Resource-ID.png"/>
-        <Button Content="Log Out" HorizontalAlignment="Left" Margin="386,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF720000" Foreground="White" />
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="386,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF720000" Foreground="White" Click="Button_Click" />
         <Button x:Name="btnClinicOverview" Content="Overview" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Height="73" Width="354" FontSize="20" Background="#FF720000" Foreground="White" Click="btnClinicOverview_Click"/>
         <Label Content="CLINIC INVENTORY" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
 

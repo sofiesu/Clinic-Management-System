@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace Clinic_Management_System
     public partial class MainMenu2 : Window
     {
         ConstantValues ConstantValues = new ConstantValues();
+        ClinicDatabaseDataContext db_con = ConstantValues.DBConnectionString;
 
         public MainMenu2()
         {
@@ -31,6 +33,14 @@ namespace Clinic_Management_System
         {
             ClinicInventoryWindow clinicInventoryWindow = new ClinicInventoryWindow();
             clinicInventoryWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            db_con.uspInsertLogs(ConstantValues.UID, "Logged Out");
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }

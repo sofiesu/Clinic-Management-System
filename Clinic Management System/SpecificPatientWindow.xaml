@@ -14,10 +14,9 @@
         <Label Content="Age" HorizontalAlignment="Left" Margin="144,141,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Contact Number" HorizontalAlignment="Left" Margin="318,142,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Address" HorizontalAlignment="Left" Margin="144,205,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Patient Type" HorizontalAlignment="Left" Margin="508,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="Patient Type" HorizontalAlignment="Left" Margin="609,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Gender" HorizontalAlignment="Left" Margin="225,141,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Patient Description" HorizontalAlignment="Left" Margin="508,146,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <Label Content="Adviser's Email Address" HorizontalAlignment="Left" Margin="508,362,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Emergency Contact Name" HorizontalAlignment="Left" Margin="144,361,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Emergency Contact Address" HorizontalAlignment="Left" Margin="144,423,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Emergency Contact Email Address" HorizontalAlignment="Left" Margin="508,423,0,0" VerticalAlignment="Top" Foreground="Black"/>
@@ -28,7 +27,7 @@
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="508,205,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Contact Number" HorizontalAlignment="Left" Margin="337,361,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock x:Name="txtName" HorizontalAlignment="Left" Margin="144,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="320" Background="White" Opacity="0.5"/>
-        <TextBlock x:Name="txtType" HorizontalAlignment="Left" Margin="508,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="212" Background="White" Opacity="0.5"/>
+        <TextBlock x:Name="txtType" HorizontalAlignment="Left" Margin="614,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="106" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="508,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="212" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtEmailAddress" HorizontalAlignment="Left" Margin="508,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="212" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtAge" HorizontalAlignment="Left" Margin="144,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="67" Background="White" Opacity="0.5"/>
@@ -38,10 +37,9 @@
         <TextBlock x:Name="txtEName" HorizontalAlignment="Left" Margin="144,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="181" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtEContactNumber" HorizontalAlignment="Left" Margin="337,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="153" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtEAddress" HorizontalAlignment="Left" Margin="144,450,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="346" Background="White" Opacity="0.5"/>
-        <TextBlock x:Name="txtAdviserEmailAddress" HorizontalAlignment="Left" Margin="508,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="212" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtEEmailAddress" HorizontalAlignment="Left" Margin="508,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.559" Height="28" Width="212" Background="White" Opacity="0.5"/>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="154" Width="730" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,560,0,0"/>
-        <Label x:Name="txtAdviser" Content="Adviser Name" HorizontalAlignment="Left" Margin="144,572,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Label Content="Adviser Name" HorizontalAlignment="Left" Margin="144,572,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Contact Number" HorizontalAlignment="Left" Margin="144,634,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Adviser Information" HorizontalAlignment="Left" Margin="37,512,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
         <Label Content="Adviser's Email Address" HorizontalAlignment="Left" Margin="368,572,0,0" VerticalAlignment="Top" Foreground="Black"/>
@@ -50,5 +48,9 @@
         <TextBlock x:Name="AdvContactNum" HorizontalAlignment="Left" Margin="144,660,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="181" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="AdvEmailAddress" HorizontalAlignment="Left" Margin="369,603,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="249" Background="White" Opacity="0.5"/>
         <TextBlock x:Name="txtDept" HorizontalAlignment="Left" Margin="369,660,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="249" Background="White" Opacity="0.5"/>
+        <Label Content="Relationship" HorizontalAlignment="Left" Margin="508,361,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="txtRelationship" HorizontalAlignment="Left" Margin="508,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="212" Background="White" Opacity="0.5"/>
+        <Label Content="Patient ID" HorizontalAlignment="Left" Margin="508,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="txtPatientID" HorizontalAlignment="Left" Margin="508,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.667" Height="28" Width="95" Background="White" Opacity="0.5"/>
     </Grid>
 </Window>

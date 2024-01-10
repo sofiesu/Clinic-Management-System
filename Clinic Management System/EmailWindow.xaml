@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clinic_Management_System"
         mc:Ignorable="d"
-        Title="EmailWindow" Height="450" Width="400">
+        Title="EmailWindow" Height="450" Width="400" WindowStartupLocation="CenterScreen">
     <Grid Background="White">
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="347" Width="360" VerticalAlignment="Top" Fill="#FF582723" Margin="0,67,0,0"/>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="37" Width="168" VerticalAlignment="Top" Fill="#FFEBBC38" Opacity="0.8" Margin="21,25,0,0"/>

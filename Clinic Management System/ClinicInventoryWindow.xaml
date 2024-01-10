@@ -10,15 +10,19 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lbMedicineResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,97,42,98" SelectionChanged="lbMedicineResults_SelectionChanged"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,420,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click" />
-        <Button x:Name="btnAddInventory" Content="Add Inventory" HorizontalAlignment="Left" Margin="19,420,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnAddInventory_Click" />
+        <ListBox x:Name="lbMedicineResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,119,42,76" SelectionChanged="lbMedicineResults_SelectionChanged"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,426,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click" />
+        <Button x:Name="btnAddInventory" Content="Add Inventory" HorizontalAlignment="Left" Margin="19,426,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnAddInventory_Click" />
         <Label Content="Medicine" HorizontalAlignment="Left" Margin="19,9,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtMedicineName" HorizontalAlignment="Left" Margin="19,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="25"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="326,35,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010" Click="btnSearch_Click_1" />
-        <ComboBox x:Name="cbFilter" HorizontalAlignment="Left" Margin="505,35,0,0" VerticalAlignment="Top" Width="182" Height="25" BorderBrush="White"/>
-        <Label Content="Search By:" HorizontalAlignment="Left" Margin="505,9,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="txtMedicineName" HorizontalAlignment="Left" Margin="19,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Height="25"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="284,35,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010" Click="btnSearch_Click_1" />
         <Image HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="78" Source="/Resource-Logo.png" Margin="705,4,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
+        <ComboBox x:Name="cbBrandName" HorizontalAlignment="Left" Margin="100,75,0,0" VerticalAlignment="Top" Width="160" Height="25" BorderBrush="White" SelectionChanged="cbBrandName_SelectionChanged"/>
+        <Label Content="Brand Name" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="cbExpDate" HorizontalAlignment="Left" Margin="467,40,0,0" VerticalAlignment="Top" Width="190" Height="26" BorderBrush="White" SelectionChanged="cbExpDate_SelectionChanged"/>
+        <Label Content="Exp. Date " HorizontalAlignment="Left" Margin="385,40,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="cbManufacturer" HorizontalAlignment="Left" Margin="469,76,0,0" VerticalAlignment="Top" Width="188" Height="25" BorderBrush="White" SelectionChanged="cbManufacturer_SelectionChanged"/>
+        <Label Content="Manufacturer" HorizontalAlignment="Left" Margin="385,75,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Window>
