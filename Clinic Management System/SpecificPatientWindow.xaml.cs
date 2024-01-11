@@ -103,7 +103,7 @@ namespace Clinic_Management_System
 
             for (int x = 0; x < AdviserResults.Count; x++)
             {
-                if (AdviserResults[x].PatientID == PID)
+                if (AdviserResults[x].AdviserID == ConstantValues.AID)
                 {
                     txtDept.Text = AdviserResults[x].AdviserDept;
                     txtAdvName.Text = AdviserResults[x].AdviserName;

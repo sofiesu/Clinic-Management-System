@@ -19,7 +19,6 @@
         <Label Content="Address" HorizontalAlignment="Left" Margin="144,223,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="144,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="30" BorderBrush="Black"/>
         <Label Content="Patient Type" HorizontalAlignment="Left" Margin="508,80,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <TextBox x:Name="txtType" HorizontalAlignment="Left" Margin="508,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" BorderBrush="Black"/>
         <Label Content="Gender" HorizontalAlignment="Left" Margin="225,159,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="txtGender" HorizontalAlignment="Left" Margin="225,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="30" BorderBrush="Black"/>
         <Label Content="Patient Description" HorizontalAlignment="Left" Margin="508,146,0,0" VerticalAlignment="Top" Foreground="Black"/>
@@ -46,7 +45,6 @@
         <TextBox x:Name="txtRelationship" HorizontalAlignment="Left" Margin="508,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" BorderBrush="Black"/>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="153" Width="730" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,555,0,0"/>
         <Label x:Name="txtAdviser" Content="Adviser Name" HorizontalAlignment="Left" Margin="144,566,0,0" VerticalAlignment="Top" Foreground="Black"/>
-        <TextBox x:Name="txtAdviserName" HorizontalAlignment="Left" Margin="144,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="30" BorderBrush="Black"/>
         <Label Content="Contact Number" HorizontalAlignment="Left" Margin="144,628,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="txtAdvContactNum" HorizontalAlignment="Left" Margin="144,655,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="30" BorderBrush="Black"/>
         <Label Content="Adviser Information" HorizontalAlignment="Left" Margin="37,507,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
@@ -54,5 +52,7 @@
         <TextBox x:Name="txtAdvEmailAdd" HorizontalAlignment="Left" Margin="367,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" BorderBrush="Black"/>
         <Label Content="Department" HorizontalAlignment="Left" Margin="369,628,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <TextBox x:Name="txtDept" HorizontalAlignment="Left" Margin="367,655,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" BorderBrush="Black"/>
+        <ComboBox x:Name="cbPatientType" HorizontalAlignment="Left" Margin="510,111,0,0" VerticalAlignment="Top" Width="206" Height="29" SelectionChanged="cbPatientType_SelectionChanged"/>
+        <ComboBox x:Name="cbAdviserName" HorizontalAlignment="Left" Margin="144,593,0,0" VerticalAlignment="Top" Width="181" Height="30" SelectionChanged="cbAdviserName_SelectionChanged"/>
     </Grid>
 </Window>

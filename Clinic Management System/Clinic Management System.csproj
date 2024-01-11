@@ -80,6 +80,12 @@
     <Compile Include="SpecificPatientWindow.xaml.cs">
       <DependentUpon>SpecificPatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SuppliesOverviewWindow.xaml.cs">
+      <DependentUpon>SuppliesOverviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserlogsWindow.xaml.cs">
+      <DependentUpon>UserlogsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="ClinicEditInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SpecificPatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SuppliesOverviewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserlogsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

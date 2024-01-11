@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clinic_Management_System"
         mc:Ignorable="d"
-        Title="ClinicVisits" Height="450" Width="800">
+        Title="ClinicVisits" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btnEmail" Content="Compose Email" HorizontalAlignment="Center" VerticalAlignment="Center" Width="118" Height="27" Click="btnEmail_Click"/>
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="341,256,0,0" VerticalAlignment="Top" Width="94" Click="btnBack_Click"/>

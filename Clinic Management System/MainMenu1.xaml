@@ -26,7 +26,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="40,28,0,0" VerticalAlignment="Top" Width="100" Source="/Resource-ID.png"/>
         <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="531,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF582723" Foreground="White" Click="btnLogOut_Click"  />
         <Button x:Name="btnClinicVisits" Content="Clinic Visits" HorizontalAlignment="Left" Margin="400,265,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnClinicVisits_Click"   />
-        <Button x:Name="btnSuppliesOverview" Content="Supplies Overview" HorizontalAlignment="Left" Margin="400,344,0,0" VerticalAlignment="Top" Height="73" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnAddItem_Click" />
+        <Button x:Name="btnSuppliesOverview" Content="Supplies Overview" HorizontalAlignment="Left" Margin="400,344,0,0" VerticalAlignment="Top" Height="73" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnSuppliesOverview_Click"/>
 
 
     </Grid>

@@ -22,7 +22,7 @@
         <Label Content="Emergency Contact Email Address" HorizontalAlignment="Left" Margin="508,423,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Patient Details" HorizontalAlignment="Left" Margin="30,13,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
         <Label Content="Emergency Information" HorizontalAlignment="Left" Margin="37,302,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="663,736,0,0" VerticalAlignment="Top" Height="30" Width="104" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="663,736,0,18" Width="104" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
         <Image HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="78" Source="/Resource-Logo.png" Margin="689,11,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="508,205,0,0" VerticalAlignment="Top" Foreground="Black"/>
         <Label Content="Contact Number" HorizontalAlignment="Left" Margin="337,361,0,0" VerticalAlignment="Top" Foreground="Black"/>

@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Clinic_Management_System
 {
@@ -31,6 +32,10 @@ namespace Clinic_Management_System
             InitializeComponent();
             btnUpdate.IsEnabled = false;
             Fill();
+
+            txtAdvEmailAdd.IsEnabled = false;
+            txtAdvContactNum.IsEnabled = false;
+            txtDept.IsEnabled = false;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -44,10 +49,10 @@ namespace Clinic_Management_System
         {
             // USP Add Patient
             if (txtPatientName.Text.Length > 0 && txtAge.Text.Length > 0 && txtGender.Text.Length > 0 && txtAddress.Text.Length > 0 && txtContactNumber.Text.Length > 0 && txtAddress.Text.Length > 0 &&
-            txtType.Text.Length > 0 && txtDescription.Text.Length > 0)
+            cbPatientType.SelectedIndex != -1 && txtDescription.Text.Length > 0)
             {
-                db_con.uspAddPatient(txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, txtType.Text, txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
-                    , txtAddress.Text);
+                db_con.uspAddPatient(txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, cbPatientType.SelectedItem.ToString(), txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
+                    , txtAddress.Text, ConstantValues.AID);
 
                 // USP Add Adviser
 
@@ -57,6 +62,11 @@ namespace Clinic_Management_System
                 MessageBox.Show("You have successfully added a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
                 db_con.uspInsertLogs(ConstantValues.UID, "Added a patient");
+                MessageBox.Show("Patient ID: " + db_con.udfGetPatientID(txtPatientName.Text), "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
+                
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.BackFunction(ConstantValues.type);
+                this.Close();
             }
         }
 
@@ -64,9 +74,9 @@ namespace Clinic_Management_System
         {
             // USP Update Patient
             if (txtPatientName.Text.Length > 0 && txtAge.Text.Length > 0 && txtGender.Text.Length > 0 && txtAddress.Text.Length > 0 && txtContactNumber.Text.Length > 0 && txtAddress.Text.Length > 0 &&
-            txtType.Text.Length > 0 && txtDescription.Text.Length > 0)
+            cbPatientType.SelectedIndex != -1 && txtDescription.Text.Length > 0)
             {
-                db_con.uspUpdatePatient(PID, txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, txtType.Text, txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
+                db_con.uspUpdatePatient(PID, txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, cbPatientType.SelectedItem.ToString(), txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
                     , txtAddress.Text);
 
                 //uspUpdateEmergencyContact
@@ -76,6 +86,10 @@ namespace Clinic_Management_System
                 MessageBox.Show("You have successfully updated a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
                 db_con.uspInsertLogs(ConstantValues.UID, "Updated a patient");
+
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.BackFunction(ConstantValues.type);
+                this.Close();
             }
         }
 
@@ -87,7 +101,7 @@ namespace Clinic_Management_System
             txtAddress.Text = string.Empty;
             txtContactNumber.Text = string.Empty;
             txtAddress.Text = string.Empty;
-            txtType.Text = string.Empty;
+            cbPatientType.SelectedIndex = -1;
             txtDescription.Text = string.Empty;
             
             txtEmailAddress.Text = string.Empty;
@@ -98,7 +112,7 @@ namespace Clinic_Management_System
             txtRelationship.Text = string.Empty;
             
             txtAdvEmailAdd.Text = string.Empty;
-            txtAdviserName.Text = string.Empty;
+            cbAdviserName.SelectedIndex = -1;
             txtAdvContactNum.Text= string.Empty;
             txtDept.Text = string.Empty;
         }
@@ -111,6 +125,15 @@ namespace Clinic_Management_System
             for (int x = 0; x < PatientResults.Count; x++)
             {
                 cbName.Items.Add(PatientResults[x].PatientName);
+            }
+            cbPatientType.Items.Add("Student");
+            cbPatientType.Items.Add("School Employee");
+
+            List<uspSelectAllStudentAdviserResult> adviserResults = new List<uspSelectAllStudentAdviserResult>();
+            adviserResults = db_con.uspSelectAllStudentAdviser().ToList();
+            for (int x = 0; x < adviserResults.Count; x++)
+            {
+                cbAdviserName.Items.Add(adviserResults[x].AdviserName);
             }
         }
 
@@ -141,12 +164,13 @@ namespace Clinic_Management_System
                     txtAddress.Text = PatientResults[x].PatientAddress;
                     txtContactNumber.Text = PatientResults[x].PatientNum;
                     txtAddress.Text = PatientResults[x].PatientAddress;
-                    txtType.Text = PatientResults[x].PatientType;
+                    cbPatientType.SelectedItem = PatientResults[x].PatientType;
                     txtDescription.Text = PatientResults[x].PatientDesc;
                     txtEmailAddress.Text =  PatientResults[x].PatientEmail;
 
                     PID = (int)db_con.udfGetPatientID(PatientName);
-                    Patienttype = txtType.Text;
+                    Patienttype = PatientResults[x].PatientType;
+                    ConstantValues.AID = PatientResults[x].AdviserID;
                 }
             }
 
@@ -162,14 +186,14 @@ namespace Clinic_Management_System
                 }
             }
 
-            if(Patienttype == "Student")
+            if (Patienttype == "Student")
             {
                 for (int x = 0; x < AdviserResults.Count; x++)
                 {
-                    if (AdviserResults[x].PatientID == PID)
+                    if (AdviserResults[x].AdviserID == ConstantValues.AID)
                     {
                         txtAdvEmailAdd.Text = AdviserResults[x].AdviserEmail;
-                        txtAdviserName.Text = AdviserResults[x].AdviserName;
+                        cbAdviserName.SelectedItem = AdviserResults[x].AdviserName;
                         txtAdvContactNum.Text = AdviserResults[x].AdviserNum;
                         txtDept.Text = AdviserResults[x].AdviserDept;
                     }
@@ -184,10 +208,42 @@ namespace Clinic_Management_System
             if(type == "Student")
             {
                 txtAdvEmailAdd.IsEnabled = true;
-                txtAdviserName.IsEnabled = true;
+                cbAdviserName.IsEnabled = true;
                 txtAdvContactNum.IsEnabled = true;
                 txtDept.IsEnabled = true;
             }
+        }
+
+        private void cbPatientType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cbPatientType.SelectedIndex != -1)
+            Patienttype = cbPatientType.SelectedItem.ToString();
+        }
+
+        private void cbAdviserName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbAdviserName.SelectedIndex != -1)
+            {
+                txtAdvEmailAdd.Text = string.Empty;
+                txtAdvContactNum.Text = string.Empty;
+                txtDept.Text = string.Empty;
+
+                List<uspSelectAllStudentAdviserResult> AdviserResults = new List<uspSelectAllStudentAdviserResult>();
+                AdviserResults = db_con.uspSelectAllStudentAdviser().ToList();
+                string adviserName = cbAdviserName.SelectedItem.ToString();
+
+                for (int x = 0; x < AdviserResults.Count; x++)
+                {
+                    if (AdviserResults[x].AdviserName == adviserName)
+                    {
+                        txtAdvEmailAdd.Text = AdviserResults[x].AdviserEmail;
+                        cbAdviserName.SelectedItem = AdviserResults[x].AdviserName;
+                        txtAdvContactNum.Text = AdviserResults[x].AdviserNum;
+                        txtDept.Text = AdviserResults[x].AdviserDept;
+                    }
+                }
+            }
+                
         }
     }
 }

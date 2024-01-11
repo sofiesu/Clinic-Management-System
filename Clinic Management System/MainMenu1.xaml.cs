@@ -70,5 +70,12 @@ namespace Clinic_Management_System
             clinicVisits.Show();
             this.Close();
         }
+
+        private void btnSuppliesOverview_Click(object sender, RoutedEventArgs e)
+        {
+            SuppliesOverviewWindow suppliesOverview = new SuppliesOverviewWindow();
+            suppliesOverview.Show();
+            this.Close();
+        }
     }
 }

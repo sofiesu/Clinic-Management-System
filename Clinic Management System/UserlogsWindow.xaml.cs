@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace Clinic_Management_System
 {
     /// <summary>
-    /// Interaction logic for ClinicVisits.xaml
+    /// Interaction logic for UserlogsWindow.xaml
     /// </summary>
-    public partial class ClinicVisits : Window
+    public partial class UserlogsWindow : Window
     {
-        public ClinicVisits()
+        public UserlogsWindow()
         {
             InitializeComponent();
-
-            if (ConstantValues.type == "Admin")
-            {
-                btnEmail.IsEnabled = false;
-            }
-        }
-
-        private void btnEmail_Click(object sender, RoutedEventArgs e)
-        {
-            EmailWindow emailWindow = new EmailWindow();
-            emailWindow.Show();
-            this.Close();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

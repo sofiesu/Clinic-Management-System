@@ -40,6 +40,8 @@ namespace Clinic_Management_System
                 MessageBox.Show("You have successfully added a medicine."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
                 db_con.uspInsertLogs(ConstantValues.UID, "Added a medicine");
+
+                MessageBox.Show("Medicine ID: " + db_con.udfGetMedicineID(txtMedName.Text), "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK); 
             }
         }
 

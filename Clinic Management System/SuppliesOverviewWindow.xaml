@@ -1,0 +1,13 @@
+﻿<Window x:Class="Clinic_Management_System.SuppliesOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clinic_Management_System"
+        mc:Ignorable="d"
+        Title="SuppliesOverviewWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="641,375,0,0" VerticalAlignment="Top" Width="78" Click="btnBack_Click"/>
+
+    </Grid>
+</Window>

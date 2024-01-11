@@ -43,5 +43,26 @@ namespace Clinic_Management_System
             mainWindow.Show();
             this.Close();
         }
+
+        private void btnSuppliesOverview_Click(object sender, RoutedEventArgs e)
+        {
+            SuppliesOverviewWindow suppliesOverview = new SuppliesOverviewWindow();
+            suppliesOverview.Show();
+            this.Close();
+        }
+
+        private void btnClinicVisits_Click(object sender, RoutedEventArgs e)
+        {
+            ClinicVisits clinicVisits = new ClinicVisits();
+            clinicVisits.Show();
+            this.Close();
+        }
+
+        private void btnUserLogs_Click(object sender, RoutedEventArgs e)
+        {
+            UserlogsWindow userlogsWindow = new UserlogsWindow();
+            userlogsWindow.Show();
+            this.Close();
+        }
     }
 }

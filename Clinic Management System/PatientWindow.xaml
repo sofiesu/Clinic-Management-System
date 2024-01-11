@@ -8,8 +8,8 @@
         Title="PatientWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF582723">
         <ListBox x:Name="lbPatientResults" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,107,42,88" SelectionChanged="lbResults_SelectionChanged"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="684,430,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
-        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="19,430,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnRegisterPatient_Click" />
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="681,413,0,0" VerticalAlignment="Top" Height="30" Width="97" Background="#FFEBBC38" Foreground="Black" Click="btnBack_Click"/>
+        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="16,413,0,0" VerticalAlignment="Top" Height="30" Width="138" Background="#FFEBBC38" Foreground="Black" Click="btnRegisterPatient_Click" />
         <Label Content="Patient's Name" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtPatientName" HorizontalAlignment="Left" Margin="19,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="25"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="326,38,0,0" VerticalAlignment="Top" Height="25" Width="74" Background="#FFEBBC38" Foreground="#FF101010" Click="btnSearch_Click"/>
