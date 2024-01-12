@@ -299,4 +299,46 @@
       <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.uspUpdateEmergencyContact" Method="uspUpdateEmergencyContact">
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EMR" Parameter="eMR" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ECN" Parameter="eCN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ECNUM" Parameter="eCNUM" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="ECE" Parameter="eCE" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ECA" Parameter="eCA" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspGrabAdviserIDbyAdviserName" Method="uspGrabAdviserIDbyAdviserName">
+    <Parameter Name="ADVN" Parameter="aDVN" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="uspGrabAdviserIDbyAdviserNameResult">
+      <Column Name="AdviserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspGrabPIDfromPatientName" Method="uspGrabPIDfromPatientName">
+    <Parameter Name="PatientName" Parameter="patientName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="uspGrabPIDfromPatientNameResult">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspUpdateAdviserInfo" Method="uspUpdateAdviserInfo">
+    <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddAdviser" Method="uspAddAdviser">
+    <Parameter Name="ANME" Parameter="aNME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AEMA" Parameter="aEMA" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ANUM" Parameter="aNUM" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="ADPT" Parameter="aDPT" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddEmergencyContact" Method="uspAddEmergencyContact">
+    <Parameter Name="EmgyRelationship" Parameter="emgyRelationship" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="EmgyContactName" Parameter="emgyContactName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="EmgyContactNum" Parameter="emgyContactNum" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="EmgyContactEmail" Parameter="emgyContactEmail" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="EmgyContactAddress" Parameter="emgyContactAddress" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

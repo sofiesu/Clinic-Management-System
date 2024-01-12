@@ -26,6 +26,7 @@ namespace Clinic_Management_System
         ClinicDatabaseDataContext db_con = ConstantValues.DBConnectionString;
         int PID = 0;
         string Patienttype = "";
+        string adviserName = "";
 
         public EditPatientWindow()
         {
@@ -54,10 +55,11 @@ namespace Clinic_Management_System
                 db_con.uspAddPatient(txtPatientName.Text, int.Parse(txtAge.Text), txtGender.Text, cbPatientType.SelectedItem.ToString(), txtDescription.Text, txtContactNumber.Text, txtEmailAddress.Text
                     , txtAddress.Text, ConstantValues.AID);
 
-                // USP Add Adviser
+                //// USP Add Adviser
+                //db_con.uspAddAdviser(adviserName, txtAdvEmailAdd.Text, txtAdvContactNum.Text, txtDept.Text);
 
                 // USP Add Emergency Contact
-
+                db_con.uspAddEmergencyContact(txtRelationship.Text, txtEmergencyName.Text, txtEmergencyContactNum.Text, txtEmergencyEmailAdd.Text, txtEmergencyAddress.Text, db_con.udfGetPatientID(txtPatientName.Text));
 
                 MessageBox.Show("You have successfully added a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
@@ -80,8 +82,10 @@ namespace Clinic_Management_System
                     , txtAddress.Text);
 
                 //uspUpdateEmergencyContact
+                db_con.uspUpdateEmergencyContact(PID, txtRelationship.Text, txtEmergencyName.Text, txtEmergencyContactNum.Text, txtEmergencyEmailAdd.Text, txtEmergencyAddress.Text);
 
                 //uspUpdateAdviserInfo
+                db_con.uspUpdateAdviserInfo(ConstantValues.AID,PID); 
 
                 MessageBox.Show("You have successfully updated a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
@@ -230,7 +234,7 @@ namespace Clinic_Management_System
 
                 List<uspSelectAllStudentAdviserResult> AdviserResults = new List<uspSelectAllStudentAdviserResult>();
                 AdviserResults = db_con.uspSelectAllStudentAdviser().ToList();
-                string adviserName = cbAdviserName.SelectedItem.ToString();
+                adviserName = cbAdviserName.SelectedItem.ToString();
 
                 for (int x = 0; x < AdviserResults.Count; x++)
                 {
@@ -240,6 +244,8 @@ namespace Clinic_Management_System
                         cbAdviserName.SelectedItem = AdviserResults[x].AdviserName;
                         txtAdvContactNum.Text = AdviserResults[x].AdviserNum;
                         txtDept.Text = AdviserResults[x].AdviserDept;
+                        adviserName = cbAdviserName.SelectedItem.ToString();
+                        ConstantValues.AID = AdviserResults[x].AdviserID;
                     }
                 }
             }

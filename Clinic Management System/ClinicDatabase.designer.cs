@@ -261,6 +261,48 @@ namespace Clinic_Management_System
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<uspSelectAllEmergencyContactResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmergencyContact")]
+		public int uspUpdateEmergencyContact([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMR", DbType="NVarChar(50)")] string eMR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECN", DbType="NVarChar(100)")] string eCN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECNUM", DbType="NChar(11)")] string eCNUM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECE", DbType="NVarChar(100)")] string eCE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECA", DbType="NVarChar(MAX)")] string eCA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pID, eMR, eCN, eCNUM, eCE, eCA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGrabAdviserIDbyAdviserName")]
+		public ISingleResult<uspGrabAdviserIDbyAdviserNameResult> uspGrabAdviserIDbyAdviserName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADVN", DbType="NVarChar(100)")] string aDVN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDVN);
+			return ((ISingleResult<uspGrabAdviserIDbyAdviserNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGrabPIDfromPatientName")]
+		public ISingleResult<uspGrabPIDfromPatientNameResult> uspGrabPIDfromPatientName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientName", DbType="NVarChar(100)")] string patientName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientName);
+			return ((ISingleResult<uspGrabPIDfromPatientNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateAdviserInfo")]
+		public int uspUpdateAdviserInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AID", DbType="Int")] System.Nullable<int> aID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aID, pID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddAdviser")]
+		public int uspAddAdviser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ANME", DbType="NVarChar(100)")] string aNME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AEMA", DbType="NVarChar(100)")] string aEMA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ANUM", DbType="NChar(11)")] string aNUM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADPT", DbType="NVarChar(100)")] string aDPT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aNME, aEMA, aNUM, aDPT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddEmergencyContact")]
+		public int uspAddEmergencyContact([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyRelationship", DbType="NVarChar(50)")] string emgyRelationship, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactName", DbType="NVarChar(100)")] string emgyContactName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactNum", DbType="NChar(11)")] string emgyContactNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactEmail", DbType="NVarChar(100)")] string emgyContactEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactAddress", DbType="NVarChar(MAX)")] string emgyContactAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emgyRelationship, emgyContactName, emgyContactNum, emgyContactEmail, emgyContactAddress, pID);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class uspLoginResult
@@ -2612,6 +2654,58 @@ namespace Clinic_Management_System
 					this._EmgyContactAddress = value;
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspGrabAdviserIDbyAdviserNameResult
+	{
+		
+		private int _AdviserID;
+		
+		public uspGrabAdviserIDbyAdviserNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdviserID", DbType="Int NOT NULL")]
+		public int AdviserID
+		{
+			get
+			{
+				return this._AdviserID;
+			}
+			set
+			{
+				if ((this._AdviserID != value))
+				{
+					this._AdviserID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspGrabPIDfromPatientNameResult
+	{
+		
+		private int _PatientID;
+		
+		public uspGrabPIDfromPatientNameResult()
+		{
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
