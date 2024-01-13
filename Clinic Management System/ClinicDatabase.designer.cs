@@ -33,7 +33,7 @@ namespace Clinic_Management_System
     #endregion
 		
 		public ClinicDatabaseDataContext() : 
-				base(global::Clinic_Management_System.Properties.Settings.Default.ClinicManagementSystem_Group3ConnectionString, mappingSource)
+				base(global::Clinic_Management_System.Properties.Settings.Default.ClinicManagementSystem_Group3ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,11 +62,31 @@ namespace Clinic_Management_System
 			OnCreated();
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddAdviser")]
+		public int uspAddAdviser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ANME", DbType="NVarChar(100)")] string aNME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AEMA", DbType="NVarChar(100)")] string aEMA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ANUM", DbType="NChar(11)")] string aNUM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADPT", DbType="NVarChar(100)")] string aDPT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aNME, aEMA, aNUM, aDPT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddEmergencyContact")]
+		public int uspAddEmergencyContact([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyRelationship", DbType="NVarChar(50)")] string emgyRelationship, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactName", DbType="NVarChar(100)")] string emgyContactName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactNum", DbType="NChar(11)")] string emgyContactNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactEmail", DbType="NVarChar(100)")] string emgyContactEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmgyContactAddress", DbType="NVarChar(MAX)")] string emgyContactAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emgyRelationship, emgyContactName, emgyContactNum, emgyContactEmail, emgyContactAddress, pID);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddMedicine")]
 		public int uspAddMedicine([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrandName", DbType="NVarChar(100)")] string brandName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GenericName", DbType="NVarChar(MAX)")] string genericName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ExpirationDate", DbType="Date")] System.Nullable<System.DateTime> expirationDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Manufacturer", DbType="NVarChar(MAX)")] string manufacturer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), brandName, genericName, expirationDate, manufacturer, quantity);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddPatient")]
+		public void uspAddPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientFullName", DbType="NVarChar(100)")] string patientFullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Age", DbType="Int")] System.Nullable<int> age, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NVarChar(50)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientType", DbType="NVarChar(50)")] string patientType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientDesc", DbType="NVarChar(50)")] string patientDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactNumber", DbType="NChar(11)")] string contactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(100)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(MAX)")] string address)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientFullName, age, gender, patientType, patientDesc, contactNumber, emailAddress, address);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddSupply")]
@@ -81,6 +101,20 @@ namespace Clinic_Management_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sID, name, expirationDate, supplier, quantity, status, price);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGrabAdviserIDbyAdviserName")]
+		public ISingleResult<uspGrabAdviserIDbyAdviserNameResult> uspGrabAdviserIDbyAdviserName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADVN", DbType="NVarChar(100)")] string aDVN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDVN);
+			return ((ISingleResult<uspGrabAdviserIDbyAdviserNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGrabPIDfromPatientName")]
+		public ISingleResult<uspGrabPIDfromPatientNameResult> uspGrabPIDfromPatientName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientName", DbType="NVarChar(100)")] string patientName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientName);
+			return ((ISingleResult<uspGrabPIDfromPatientNameResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspInsertLogs")]
@@ -111,6 +145,13 @@ namespace Clinic_Management_System
 			return ((ISingleResult<uspLoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllEmergencyContact")]
+		public ISingleResult<uspSelectAllEmergencyContactResult> uspSelectAllEmergencyContact()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<uspSelectAllEmergencyContactResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllLogs")]
 		public ISingleResult<uspSelectAllLogsResult> uspSelectAllLogs()
 		{
@@ -123,6 +164,13 @@ namespace Clinic_Management_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<uspSelectAllMedicineResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllPatient")]
+		public ISingleResult<uspSelectAllPatientResult> uspSelectAllPatient()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<uspSelectAllPatientResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllStudentAdviser")]
@@ -209,6 +257,20 @@ namespace Clinic_Management_System
 			return ((ISingleResult<uspSelectUserLogsResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateAdviserInfo")]
+		public int uspUpdateAdviserInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AID", DbType="Int")] System.Nullable<int> aID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aID, pID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmergencyContact")]
+		public int uspUpdateEmergencyContact([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PID", DbType="Int")] System.Nullable<int> pID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMR", DbType="NVarChar(50)")] string eMR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECN", DbType="NVarChar(100)")] string eCN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECNUM", DbType="NChar(11)")] string eCNUM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECE", DbType="NVarChar(100)")] string eCE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ECA", DbType="NVarChar(MAX)")] string eCA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pID, eMR, eCN, eCNUM, eCE, eCA);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateMedicine")]
 		public int uspUpdateMedicine([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MID", DbType="Int")] System.Nullable<int> mID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrandName", DbType="NVarChar(100)")] string brandName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GenericName", DbType="NVarChar(MAX)")] string genericName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ExpirationDate", DbType="Date")] System.Nullable<System.DateTime> expirationDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Manufacturer", DbType="NVarChar(MAX)")] string manufacturer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
 		{
@@ -240,26 +302,57 @@ namespace Clinic_Management_System
 		{
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pID, timeIn).ReturnValue));
 		}
+	}
+	
+	public partial class uspGrabAdviserIDbyAdviserNameResult
+	{
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddPatient")]
-		public int uspAddPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientFullName", DbType="NVarChar(100)")] string patientFullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Age", DbType="Int")] System.Nullable<int> age, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NVarChar(50)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientType", DbType="NVarChar(50)")] string patientType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientDesc", DbType="NVarChar(50)")] string patientDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactNumber", DbType="NChar(11)")] string contactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(100)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(MAX)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AID", DbType="Int")] System.Nullable<int> aID)
+		private int _AdviserID;
+		
+		public uspGrabAdviserIDbyAdviserNameResult()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientFullName, age, gender, patientType, patientDesc, contactNumber, emailAddress, address, aID);
-			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllPatient")]
-		public ISingleResult<uspSelectAllPatientResult> uspSelectAllPatient()
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdviserID", DbType="Int NOT NULL")]
+		public int AdviserID
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<uspSelectAllPatientResult>)(result.ReturnValue));
+			get
+			{
+				return this._AdviserID;
+			}
+			set
+			{
+				if ((this._AdviserID != value))
+				{
+					this._AdviserID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspGrabPIDfromPatientNameResult
+	{
+		
+		private int _PatientID;
+		
+		public uspGrabPIDfromPatientNameResult()
+		{
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelectAllEmergencyContact")]
-		public ISingleResult<uspSelectAllEmergencyContactResult> uspSelectAllEmergencyContact()
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<uspSelectAllEmergencyContactResult>)(result.ReturnValue));
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
+				}
+			}
 		}
 	}
 	
@@ -320,6 +413,140 @@ namespace Clinic_Management_System
 				if ((this._UserType != value))
 				{
 					this._UserType = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectAllEmergencyContactResult
+	{
+		
+		private int _EmgyContactID;
+		
+		private string _EmgyRelationship;
+		
+		private string _EmgyContactName;
+		
+		private string _EmgyContactNum;
+		
+		private string _EmgyContactEmail;
+		
+		private string _EmgyContactAddress;
+		
+		private int _PatientID;
+		
+		public uspSelectAllEmergencyContactResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactID", DbType="Int NOT NULL")]
+		public int EmgyContactID
+		{
+			get
+			{
+				return this._EmgyContactID;
+			}
+			set
+			{
+				if ((this._EmgyContactID != value))
+				{
+					this._EmgyContactID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyRelationship", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmgyRelationship
+		{
+			get
+			{
+				return this._EmgyRelationship;
+			}
+			set
+			{
+				if ((this._EmgyRelationship != value))
+				{
+					this._EmgyRelationship = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string EmgyContactName
+		{
+			get
+			{
+				return this._EmgyContactName;
+			}
+			set
+			{
+				if ((this._EmgyContactName != value))
+				{
+					this._EmgyContactName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
+		public string EmgyContactNum
+		{
+			get
+			{
+				return this._EmgyContactNum;
+			}
+			set
+			{
+				if ((this._EmgyContactNum != value))
+				{
+					this._EmgyContactNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string EmgyContactEmail
+		{
+			get
+			{
+				return this._EmgyContactEmail;
+			}
+			set
+			{
+				if ((this._EmgyContactEmail != value))
+				{
+					this._EmgyContactEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string EmgyContactAddress
+		{
+			get
+			{
+				return this._EmgyContactAddress;
+			}
+			set
+			{
+				if ((this._EmgyContactAddress != value))
+				{
+					this._EmgyContactAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
 				}
 			}
 		}
@@ -534,6 +761,158 @@ namespace Clinic_Management_System
 				if ((this._MedLastUpdated != value))
 				{
 					this._MedLastUpdated = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelectAllPatientResult
+	{
+		
+		private string _PatientName;
+		
+		private int _PatientAge;
+		
+		private string _PatientGender;
+		
+		private string _PatientType;
+		
+		private string _PatientDesc;
+		
+		private string _PatientNum;
+		
+		private string _PatientEmail;
+		
+		private string _PatientAddress;
+		
+		public uspSelectAllPatientResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientName
+		{
+			get
+			{
+				return this._PatientName;
+			}
+			set
+			{
+				if ((this._PatientName != value))
+				{
+					this._PatientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAge", DbType="Int NOT NULL")]
+		public int PatientAge
+		{
+			get
+			{
+				return this._PatientAge;
+			}
+			set
+			{
+				if ((this._PatientAge != value))
+				{
+					this._PatientAge = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientGender", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientGender
+		{
+			get
+			{
+				return this._PatientGender;
+			}
+			set
+			{
+				if ((this._PatientGender != value))
+				{
+					this._PatientGender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientType
+		{
+			get
+			{
+				return this._PatientType;
+			}
+			set
+			{
+				if ((this._PatientType != value))
+				{
+					this._PatientType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientDesc
+		{
+			get
+			{
+				return this._PatientDesc;
+			}
+			set
+			{
+				if ((this._PatientDesc != value))
+				{
+					this._PatientDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
+		public string PatientNum
+		{
+			get
+			{
+				return this._PatientNum;
+			}
+			set
+			{
+				if ((this._PatientNum != value))
+				{
+					this._PatientNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string PatientEmail
+		{
+			get
+			{
+				return this._PatientEmail;
+			}
+			set
+			{
+				if ((this._PatientEmail != value))
+				{
+					this._PatientEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PatientAddress
+		{
+			get
+			{
+				return this._PatientAddress;
+			}
+			set
+			{
+				if ((this._PatientAddress != value))
+				{
+					this._PatientAddress = value;
 				}
 			}
 		}
@@ -2304,328 +2683,6 @@ namespace Clinic_Management_System
 				if ((this._LogDate != value))
 				{
 					this._LogDate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelectAllPatientResult
-	{
-		
-		private int _PatientID;
-		
-		private string _PatientName;
-		
-		private int _PatientAge;
-		
-		private string _PatientGender;
-		
-		private string _PatientType;
-		
-		private string _PatientDesc;
-		
-		private string _PatientNum;
-		
-		private string _PatientEmail;
-		
-		private string _PatientAddress;
-		
-		private int _AdviserID;
-		
-		public uspSelectAllPatientResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
-		public int PatientID
-		{
-			get
-			{
-				return this._PatientID;
-			}
-			set
-			{
-				if ((this._PatientID != value))
-				{
-					this._PatientID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string PatientName
-		{
-			get
-			{
-				return this._PatientName;
-			}
-			set
-			{
-				if ((this._PatientName != value))
-				{
-					this._PatientName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAge", DbType="Int NOT NULL")]
-		public int PatientAge
-		{
-			get
-			{
-				return this._PatientAge;
-			}
-			set
-			{
-				if ((this._PatientAge != value))
-				{
-					this._PatientAge = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientGender", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PatientGender
-		{
-			get
-			{
-				return this._PatientGender;
-			}
-			set
-			{
-				if ((this._PatientGender != value))
-				{
-					this._PatientGender = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PatientType
-		{
-			get
-			{
-				return this._PatientType;
-			}
-			set
-			{
-				if ((this._PatientType != value))
-				{
-					this._PatientType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PatientDesc
-		{
-			get
-			{
-				return this._PatientDesc;
-			}
-			set
-			{
-				if ((this._PatientDesc != value))
-				{
-					this._PatientDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
-		public string PatientNum
-		{
-			get
-			{
-				return this._PatientNum;
-			}
-			set
-			{
-				if ((this._PatientNum != value))
-				{
-					this._PatientNum = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string PatientEmail
-		{
-			get
-			{
-				return this._PatientEmail;
-			}
-			set
-			{
-				if ((this._PatientEmail != value))
-				{
-					this._PatientEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string PatientAddress
-		{
-			get
-			{
-				return this._PatientAddress;
-			}
-			set
-			{
-				if ((this._PatientAddress != value))
-				{
-					this._PatientAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdviserID", DbType="Int NOT NULL")]
-		public int AdviserID
-		{
-			get
-			{
-				return this._AdviserID;
-			}
-			set
-			{
-				if ((this._AdviserID != value))
-				{
-					this._AdviserID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelectAllEmergencyContactResult
-	{
-		
-		private int _EmgyContactID;
-		
-		private string _EmgyRelationship;
-		
-		private string _EmgyContactName;
-		
-		private string _EmgyContactNum;
-		
-		private string _EmgyContactEmail;
-		
-		private string _EmgyContactAddress;
-		
-		private int _PatientID;
-		
-		public uspSelectAllEmergencyContactResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactID", DbType="Int NOT NULL")]
-		public int EmgyContactID
-		{
-			get
-			{
-				return this._EmgyContactID;
-			}
-			set
-			{
-				if ((this._EmgyContactID != value))
-				{
-					this._EmgyContactID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyRelationship", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string EmgyRelationship
-		{
-			get
-			{
-				return this._EmgyRelationship;
-			}
-			set
-			{
-				if ((this._EmgyRelationship != value))
-				{
-					this._EmgyRelationship = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string EmgyContactName
-		{
-			get
-			{
-				return this._EmgyContactName;
-			}
-			set
-			{
-				if ((this._EmgyContactName != value))
-				{
-					this._EmgyContactName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactNum", DbType="NChar(11) NOT NULL", CanBeNull=false)]
-		public string EmgyContactNum
-		{
-			get
-			{
-				return this._EmgyContactNum;
-			}
-			set
-			{
-				if ((this._EmgyContactNum != value))
-				{
-					this._EmgyContactNum = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactEmail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string EmgyContactEmail
-		{
-			get
-			{
-				return this._EmgyContactEmail;
-			}
-			set
-			{
-				if ((this._EmgyContactEmail != value))
-				{
-					this._EmgyContactEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmgyContactAddress", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string EmgyContactAddress
-		{
-			get
-			{
-				return this._EmgyContactAddress;
-			}
-			set
-			{
-				if ((this._EmgyContactAddress != value))
-				{
-					this._EmgyContactAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
-		public int PatientID
-		{
-			get
-			{
-				return this._PatientID;
-			}
-			set
-			{
-				if ((this._PatientID != value))
-				{
-					this._PatientID = value;
 				}
 			}
 		}
