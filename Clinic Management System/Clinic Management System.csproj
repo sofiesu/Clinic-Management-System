@@ -61,6 +61,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicDatabase.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ClinicTimeOut.xaml.cs">
+      <DependentUpon>ClinicTimeOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClinicVisits.xaml.cs">
       <DependentUpon>ClinicVisits.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ClinicInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClinicTimeOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

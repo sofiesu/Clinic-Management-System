@@ -1,5 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ClinicManagementSystem_Group3" Class="ClinicDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SOFIA\SQLEXPRESS;Initial Catalog=ClinicManagementSystem_Group3;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="Clinic_Management_System.Properties.Settings" SettingsPropertyName="ClinicManagementSystem_Group3ConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BERNISECUTE\SQLEXPRESS;Initial Catalog=ClinicManagementSystem_Group3;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Clinic_Management_System.Properties.Settings" SettingsPropertyName="ClinicManagementSystem_Group3ConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspAddAdviser" Method="uspAddAdviser">
+    <Parameter Name="ANME" Parameter="aNME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AEMA" Parameter="aEMA" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ANUM" Parameter="aNUM" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="ADPT" Parameter="aDPT" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddClinicVisitInfo" Method="uspAddClinicVisitInfo">
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UID" Parameter="uID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddEmergencyContact" Method="uspAddEmergencyContact">
+    <Parameter Name="EmgyRelationship" Parameter="emgyRelationship" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="EmgyContactName" Parameter="emgyContactName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="EmgyContactNum" Parameter="emgyContactNum" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="EmgyContactEmail" Parameter="emgyContactEmail" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="EmgyContactAddress" Parameter="emgyContactAddress" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.uspAddMedicine" Method="uspAddMedicine">
     <Parameter Name="BrandName" Parameter="brandName" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GenericName" Parameter="genericName" Type="System.String" DbType="NVarChar(MAX)" />
@@ -26,6 +47,18 @@
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Money" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspGrabAdviserIDbyAdviserName" Method="uspGrabAdviserIDbyAdviserName">
+    <Parameter Name="ADVN" Parameter="aDVN" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="uspGrabAdviserIDbyAdviserNameResult">
+      <Column Name="AdviserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspGrabPIDfromPatientName" Method="uspGrabPIDfromPatientName">
+    <Parameter Name="PatientName" Parameter="patientName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="uspGrabPIDfromPatientNameResult">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
   <Function Name="dbo.uspInsertLogs" Method="uspInsertLogs">
     <Parameter Name="UID" Parameter="uID" Type="System.Int32" DbType="Int" />
@@ -59,6 +92,17 @@
       <Column Name="UserType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.uspSelectAllEmergencyContact" Method="uspSelectAllEmergencyContact">
+    <ElementType Name="uspSelectAllEmergencyContactResult">
+      <Column Name="EmgyContactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmgyRelationship" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmgyContactName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmgyContactNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="EmgyContactEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmgyContactAddress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.uspSelectAllLogs" Method="uspSelectAllLogs">
     <ElementType Name="uspSelectAllLogsResult">
       <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -76,6 +120,35 @@
       <Column Name="MedQTY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MedStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MedLastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelectAllPatient" Method="uspSelectAllPatient">
+    <ElementType Name="uspSelectAllPatientResult">
+      <Column Name="PatientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientAge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientGender" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientAddress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AdviserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelectAllPatientwAdviser" Method="uspSelectAllPatientwAdviser">
+    <ElementType Name="uspSelectAllPatientwAdviserResult">
+      <Column Name="PatientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientAge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientGender" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientAddress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AdviserName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AdviserEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AdviserNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="AdviserDept" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.uspSelectAllStudentAdviser" Method="uspSelectAllStudentAdviser">
@@ -228,6 +301,20 @@
       <Column Name="LogDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.uspUpdateAdviserInfo" Method="uspUpdateAdviserInfo">
+    <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspUpdateEmergencyContact" Method="uspUpdateEmergencyContact">
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EMR" Parameter="eMR" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ECN" Parameter="eCN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ECNUM" Parameter="eCNUM" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="ECE" Parameter="eCE" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ECA" Parameter="eCA" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.uspUpdateMedicine" Method="uspUpdateMedicine">
     <Parameter Name="MID" Parameter="mID" Type="System.Int32" DbType="Int" />
     <Parameter Name="BrandName" Parameter="brandName" Type="System.String" DbType="NVarChar(100)" />
@@ -249,19 +336,6 @@
     <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.udfGetMedicineID" Method="udfGetMedicineID" IsComposable="true">
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.udfGetPatientID" Method="udfGetPatientID" IsComposable="true">
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.udfGetVisitID" Method="udfGetVisitID" IsComposable="true">
-    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TimeIn" Parameter="timeIn" Type="System.DateTime" DbType="DateTime" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.uspAddPatient" Method="uspAddPatient">
     <Parameter Name="PatientFullName" Parameter="patientFullName" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Age" Parameter="age" Type="System.Int32" DbType="Int" />
@@ -274,71 +348,101 @@
     <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspSelectAllPatient" Method="uspSelectAllPatient">
-    <ElementType Name="uspSelectAllPatientResult">
-      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PatientName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientAge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PatientGender" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientAddress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="AdviserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.uspSelectAllEmergencyContact" Method="uspSelectAllEmergencyContact">
-    <ElementType Name="uspSelectAllEmergencyContactResult">
-      <Column Name="EmgyContactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmgyRelationship" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EmgyContactName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="EmgyContactNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="EmgyContactEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="EmgyContactAddress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.uspUpdateEmergencyContact" Method="uspUpdateEmergencyContact">
-    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EMR" Parameter="eMR" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ECN" Parameter="eCN" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="ECNUM" Parameter="eCNUM" Type="System.String" DbType="NChar(11)" />
-    <Parameter Name="ECE" Parameter="eCE" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="ECA" Parameter="eCA" Type="System.String" DbType="NVarChar(MAX)" />
+  <Function Name="dbo.udfCountPatients" Method="udfCountPatients" IsComposable="true">
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspGrabAdviserIDbyAdviserName" Method="uspGrabAdviserIDbyAdviserName">
-    <Parameter Name="ADVN" Parameter="aDVN" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="uspGrabAdviserIDbyAdviserNameResult">
-      <Column Name="AdviserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
+  <Function Name="dbo.udfCountUsers" Method="udfCountUsers" IsComposable="true">
+    <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspGrabPIDfromPatientName" Method="uspGrabPIDfromPatientName">
+  <Function Name="dbo.udfGetMedicineID" Method="udfGetMedicineID" IsComposable="true">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.udfGetPatientID" Method="udfGetPatientID" IsComposable="true">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.udfGetUserID" Method="udfGetUserID" IsComposable="true">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.udfGetVisitID" Method="udfGetVisitID" IsComposable="true">
+    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TimeIn" Parameter="timeIn" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelectPatientTimeIn" Method="uspSelectPatientTimeIn">
     <Parameter Name="PatientName" Parameter="patientName" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="uspGrabPIDfromPatientNameResult">
-      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    <ElementType Name="uspSelectPatientTimeInResult">
+      <Column Name="PatientTimeIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.uspUpdateAdviserInfo" Method="uspUpdateAdviserInfo">
-    <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+  <Function Name="dbo.uspSelectNursesMedPro" Method="uspSelectNursesMedPro">
+    <ElementType Name="uspSelectNursesMedProResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserFullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserPassword" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserContact" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="UserType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspInsertGivenMeds" Method="uspInsertGivenMeds">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MID" Parameter="mID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qty" Parameter="qty" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspAddAdviser" Method="uspAddAdviser">
-    <Parameter Name="ANME" Parameter="aNME" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="AEMA" Parameter="aEMA" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="ANUM" Parameter="aNUM" Type="System.String" DbType="NChar(11)" />
-    <Parameter Name="ADPT" Parameter="aDPT" Type="System.String" DbType="NVarChar(100)" />
+  <Function Name="dbo.uspInsertGivenSupplies" Method="uspInsertGivenSupplies">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SID" Parameter="sID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qty" Parameter="qty" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspAddEmergencyContact" Method="uspAddEmergencyContact">
-    <Parameter Name="EmgyRelationship" Parameter="emgyRelationship" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="EmgyContactName" Parameter="emgyContactName" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="EmgyContactNum" Parameter="emgyContactNum" Type="System.String" DbType="NChar(11)" />
-    <Parameter Name="EmgyContactEmail" Parameter="emgyContactEmail" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="EmgyContactAddress" Parameter="emgyContactAddress" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="PID" Parameter="pID" Type="System.Int32" DbType="Int" />
+  <Function Name="dbo.uspPatientTimeOut" Method="uspPatientTimeOut">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelectAllSupplies" Method="uspSelectAllSupplies">
+    <ElementType Name="uspSelectAllSuppliesResult">
+      <Column Name="SupplyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyLastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelectAvailMeds" Method="uspSelectAvailMeds">
+    <ElementType Name="uspSelectAvailMedsResult">
+      <Column Name="MedicineID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MedicineName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MedicineType" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MedExpDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MedManufacturer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MedQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MedStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MedLastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelectAvailSupplies" Method="uspSelectAvailSupplies">
+    <ElementType Name="uspSelectAvailSuppliesResult">
+      <Column Name="SupplyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyLastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfGetSupplyID" Method="udfGetSupplyID" IsComposable="true">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
