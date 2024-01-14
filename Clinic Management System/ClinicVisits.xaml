@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clinic_Management_System"
         mc:Ignorable="d"
-        Title="ClinicVisits" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="btnEmail" Content="Compose Email" HorizontalAlignment="Center" VerticalAlignment="Center" Width="118" Height="27" Click="btnEmail_Click"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="341,256,0,0" VerticalAlignment="Top" Width="94" Click="btnBack_Click"/>
-
+        Title="ClinicVisits" Height="424" Width="743" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid Background="#FF582723">
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="323" Width="700" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,61,0,0"/>
+        <Image HorizontalAlignment="Left" Height="277" VerticalAlignment="Top" Width="282" Source="/Resource-Logo.png" Margin="66,79,0,0" Opacity="0.1" RenderTransformOrigin="0.251,0.488"/>
+        <ComboBox x:Name="cbPatients" HorizontalAlignment="Left" Margin="45,115,0,0" VerticalAlignment="Top" Width="320" Height="29" FontSize="16" SelectionChanged="cbPatients_SelectionChanged"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="640,27,0,0" VerticalAlignment="Top" Width="82" Click="btnBack_Click" Height="25" Background="#FFEBBC38" FontWeight="Normal"/>
+        <Label Content="Patient Name" HorizontalAlignment="Left" Margin="45,79,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="16"/>
+        <Label Content="Clinic Visit Log" HorizontalAlignment="Left" Margin="24,12,0,0" VerticalAlignment="Top" FontSize="25" Foreground="White" FontWeight="Bold"/>
+        <ComboBox x:Name="cbNurses" HorizontalAlignment="Left" Margin="45,185,0,0" VerticalAlignment="Top" Width="320" Height="29" FontSize="16"/>
+        <Label Content="Medical Attendant" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="16"/>
+        <ListBox x:Name="patientDeetsLB" Margin="420,115,0,0" Height="248" VerticalAlignment="Top" HorizontalAlignment="Left" Width="278" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="timeinbtn" Content="Time In" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" Height="45" Margin="45,318,0,0" Background="#FFEBBC38" FontWeight="Bold" Click="timeinbtn_Click" FontSize="16"/>
+        <Label Content="Patient Details" HorizontalAlignment="Left" Margin="420,79,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="16"/>
+        <Rectangle HorizontalAlignment="Left" Height="9" Margin="733,399,0,0" Stroke="#FF582723" VerticalAlignment="Top" Width="10"/>
     </Grid>
 </Window>
