@@ -21,6 +21,7 @@ namespace Clinic_Management_System
     /// </summary>
     public partial class EmailWindow : Window
     {
+        ClinicDatabaseDataContext db_con = ConstantValues.DBConnectionString;
         string username = "";
         string password = "beut ekgz secg xasy";
         string senderEmail = "sfsuriaga@gmail.com";
@@ -63,6 +64,7 @@ namespace Clinic_Management_System
             {
                 smtpClient.Send(mailMessage);
                 MessageBox.Show("Sent! Kindly check your Gmail...");
+                db_con.uspInsertLogs(ConstantValues.UID, "Sent an email");
             }
             catch (Exception ex)
             {
