@@ -77,5 +77,24 @@ namespace Clinic_Management_System
             suppliesOverview.Show();
             this.Close();
         }
+
+        private void btnEmail_Click(object sender, RoutedEventArgs e)
+        {
+            EmailWindow emailWindow = new EmailWindow();
+            emailWindow.Show();
+            this.Close();
+        }
+
+        private void btnAddSupply_Click(object sender, RoutedEventArgs e)
+        {
+            // go to Add Supply Window
+        }
+
+        private void btnTimeOut_Click(object sender, RoutedEventArgs e)
+        {
+            ClinicTimeOut timeout = new ClinicTimeOut();
+            timeout.Show();
+            this.Close();
+        }
     }
 }
