@@ -63,7 +63,7 @@ namespace Clinic_Management_System
 
                 MessageBox.Show("You have successfully added a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
-                db_con.uspInsertLogs(ConstantValues.UID, "Added a patient");
+                db_con.uspInsertLogs(ConstantValues.UID, "Registered Patient " + txtPatientName.Text);
                 MessageBox.Show("Patient ID: " + db_con.udfGetPatientID(txtPatientName.Text), "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
                 
                 MainWindow mainWindow = new MainWindow();
@@ -89,7 +89,7 @@ namespace Clinic_Management_System
 
                 MessageBox.Show("You have successfully updated a patient."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
-                db_con.uspInsertLogs(ConstantValues.UID, "Updated a patient");
+                db_con.uspInsertLogs(ConstantValues.UID, "Updated patient " + txtPatientName + "'s details");
 
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.BackFunction(ConstantValues.type);
