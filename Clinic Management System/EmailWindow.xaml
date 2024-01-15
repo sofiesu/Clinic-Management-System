@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="EmailWindow" Height="600" Width="400" WindowStartupLocation="CenterScreen">
     <Grid Background="White">
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="495" Width="360" VerticalAlignment="Top" Fill="#FF582723" Margin="0,67,0,0"/>
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="37" Width="168" VerticalAlignment="Top" Fill="#FFEBBC38" Opacity="0.8" Margin="21,30,0,0"/>
-        <Label x:Name="AdminName" Content="Compose Message" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="472" Width="360" VerticalAlignment="Top" Fill="#FF582723" Margin="0,67,0,0"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="37" Width="168" VerticalAlignment="Top" Fill="#FFEBBC38" Opacity="0.8" Margin="21,18,0,0"/>
+        <Label x:Name="AdminName" Content="Compose Message" HorizontalAlignment="Left" Margin="39,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Margin="51,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Height="283" AcceptsReturn="True"/>
         <Label Content="To:" HorizontalAlignment="Left" Margin="52,114,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtRecipient" HorizontalAlignment="Left" Margin="109,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="19"/>
         <Label Content="Subject:" HorizontalAlignment="Left" Margin="52,138,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtSubject" HorizontalAlignment="Left" Margin="109,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="19"/>
         <Label Content="Type Message:" HorizontalAlignment="Left" Margin="51,169,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="39,524,0,0" VerticalAlignment="Top" Height="24" Width="65" Background="#FFEBBC38" Foreground="Black" FontSize="10" Click="btnBack_Click" />
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="52,494,0,0" VerticalAlignment="Top" Height="24" Width="65" Background="#FFEBBC38" Foreground="Black" FontSize="10" Click="btnBack_Click" />
         <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="261,494,0,0" VerticalAlignment="Top" Height="24" Width="75" Background="#FFEBBC38" Foreground="Black" FontSize="10" Click="btnSend_Click" />
         <Image HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="72" Source="/Resource-Logo.png" Margin="317,1,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
         <ComboBox x:Name="cbTemplate" HorizontalAlignment="Left" Margin="109,88,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="cbTemplate_SelectionChanged"/>

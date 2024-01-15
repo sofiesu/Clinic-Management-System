@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clinic_Management_System"
         mc:Ignorable="d"
-        Title="MainMenu2" Height="700" Width="650" WindowStartupLocation="CenterScreen">
+        Title="MainMenu2" Height="700" Width="650" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid Background="#FF720000">
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="114" Width="762" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,20,0,0"/>
         <Image HorizontalAlignment="Left" Height="114" VerticalAlignment="Top" Width="105" Source="/Resource-Logo.png" Margin="539,26,0,0" Opacity="0.3" RenderTransformOrigin="0.499,0.517"/>
@@ -14,12 +14,13 @@
         <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top"/>
         <Label x:Name="AdminFN" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="125,57,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="40,28,0,0" VerticalAlignment="Top" Width="100" Source="/Resource-ID.png"/>
-        <Button Content="Log Out" HorizontalAlignment="Left" Margin="386,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF720000" Foreground="White" Click="Button_Click" />
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="351,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF720000" Foreground="White" Click="Button_Click" />
         <Button x:Name="btnClinicOverview" Content="Medicine Overview" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Height="73" Width="354" FontSize="20" Background="#FF720000" Foreground="White" Click="btnClinicOverview_Click"/>
         <Label Content="CLINIC INVENTORY" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
         <Button x:Name="btnSuppliesOverview" Content="Supplies Overview" HorizontalAlignment="Center" Margin="0,349,0,0" VerticalAlignment="Top" Height="72" Width="354" FontSize="20" Background="#FF720000" Foreground="White" Click="btnSuppliesOverview_Click" />
         <Button x:Name="btnClinicVisits" Content="Clinic Visits" HorizontalAlignment="Center" Margin="0,433,0,0" VerticalAlignment="Top" Height="72" Width="354" FontSize="20" Background="#FF720000" Foreground="White" Click="btnClinicVisits_Click" />
         <Button x:Name="btnUserLogs" Content="User Logs" HorizontalAlignment="Left" Margin="146,520,0,0" VerticalAlignment="Top" Height="72" Width="354" FontSize="20" Background="#FF720000" Foreground="White" Click="btnUserLogs_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="10" Margin="640,674,0,0" Stroke="#FF582723" VerticalAlignment="Top" Width="10"/>
 
     </Grid>
 </Window>

@@ -39,7 +39,7 @@ namespace Clinic_Management_System
                 db_con.uspAddMedicine(txtMedName.Text, txtGenericName.Text, DateTime.Parse(txtExpirationDate.Text), txtManufacturer.Text, int.Parse(txtQuantity.Text));
                 MessageBox.Show("You have successfully added a medicine."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
-                db_con.uspInsertLogs(ConstantValues.UID, "Added a medicine");
+                db_con.uspInsertLogs(ConstantValues.UID, "Added a new medicine: " + txtMedName.Text);
 
                 MessageBox.Show("Medicine ID: " + db_con.udfGetMedicineID(txtMedName.Text), "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK); 
             }
@@ -53,7 +53,7 @@ namespace Clinic_Management_System
                 db_con.uspUpdateMedicine(MID, txtMedName.Text, txtGenericName.Text, DateTime.Parse(txtExpirationDate.Text), txtManufacturer.Text, int.Parse(txtQuantity.Text));
                 MessageBox.Show("You have successfully updated a medicine."
                            , "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
-                db_con.uspInsertLogs(ConstantValues.UID, "Updated a medicine");
+                db_con.uspInsertLogs(ConstantValues.UID, "Updated " + txtMedName.Text + "'s details");
             }
         }
 

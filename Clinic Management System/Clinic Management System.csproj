@@ -61,6 +61,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicDatabase.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ClinicTimeOut.xaml.cs">
+      <DependentUpon>ClinicTimeOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClinicVisits.xaml.cs">
       <DependentUpon>ClinicVisits.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ClinicInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClinicTimeOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +180,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ClinicDatabase.dbml.layout">
+      <DependentUpon>ClinicDatabase.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -181,9 +191,6 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>ClinicDatabase.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </None>
-    <None Include="ClinicDatabase.dbml.layout">
-      <DependentUpon>ClinicDatabase.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,7 +10,7 @@ namespace Clinic_Management_System
     {
         //Edit the connection string here
         public static ClinicDatabaseDataContext DBConnectionString = new ClinicDatabaseDataContext
-            (Properties.Settings.Default.ClinicManagementSystem_Group3ConnectionString);
+            (Properties.Settings.Default.ClinicManagementSystem_Group3ConnectionString1);
 
         public static string FullName = "";
         public static int UID = 0;

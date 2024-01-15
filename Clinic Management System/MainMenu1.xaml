@@ -5,28 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clinic_Management_System"
         mc:Ignorable="d"
-        Title="MainMenu1" Height="750" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainMenu1" Height="750" Width="1196" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid Background="#FF582723">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="114" Width="762" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,20,0,0"/>
-        <Image HorizontalAlignment="Left" Height="114" VerticalAlignment="Top" Width="105" Source="/Resource-Logo.png" Margin="666,28,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="581" Width="762" VerticalAlignment="Top" Fill="#FFEBBC38" Margin="0,139,0,0"/>
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="290" Width="698" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,166,0,0"/>
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="205" Width="698" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="0,485,0,0"/>
-        <Button x:Name="btnClinicOverview" Content="Medicine Overview" HorizontalAlignment="Left" Margin="95,265,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnClinicOverview_Click"  />
-        <Button x:Name="btnAddItem" Content="Add Item to Inventory" HorizontalAlignment="Left" Margin="95,343,0,0" VerticalAlignment="Top" Height="73" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnAddItem_Click" />
-        <Button x:Name="btnViewPatient" Content="View Patient Details" HorizontalAlignment="Left" Margin="95,582,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnViewPatient_Click" />
-        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="400,582,0,0" VerticalAlignment="Top" Height="73" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnRegisterPatient_Click" />
-        <Label Content="CLINIC INVENTORY" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
-        <Label Content="PATIENT PROFILE" HorizontalAlignment="Center" Margin="0,510,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="114" Width="1151" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="19,20,0,0"/>
+        <Image HorizontalAlignment="Left" Height="114" VerticalAlignment="Top" Width="105" Source="/Resource-Logo.png" Margin="1050,23,0,0" Opacity="0.3" RenderTransformOrigin="0.251,0.488"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="581" Width="1151" VerticalAlignment="Top" Fill="#FFEBBC38" Margin="19,139,0,0"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="290" Width="698" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="446,165,0,0"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="204" Width="698" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="446,484,0,0"/>
+        <Button x:Name="btnClinicOverview" Content="Medicine Overview" HorizontalAlignment="Left" Margin="490,264,0,0" VerticalAlignment="Top" Height="72" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnClinicOverview_Click"  />
+        <Button x:Name="btnAddItem" Content="Add Medicine to Inventory" HorizontalAlignment="Left" Margin="490,342,0,0" VerticalAlignment="Top" Height="72" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnAddItem_Click" />
+        <Button x:Name="btnViewPatient" Content="View Patient Details" HorizontalAlignment="Left" Margin="490,580,0,0" VerticalAlignment="Top" Height="74" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnViewPatient_Click" />
+        <Button x:Name="btnRegisterPatient" Content="Register Patient" HorizontalAlignment="Left" Margin="794,580,0,0" VerticalAlignment="Top" Height="74" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnRegisterPatient_Click" />
+        <Label Content="CLINIC INVENTORY" HorizontalAlignment="Left" Margin="676,192,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
+        <Label Content="PATIENT PROFILE" HorizontalAlignment="Left" Margin="688,509,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
         <Label Content="MEDICAL PROFESSIONAL" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top"/>
         <Label x:Name="MedFN" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="125,57,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="40,28,0,0" VerticalAlignment="Top" Width="100" Source="/Resource-ID.png"/>
-        <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="531,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF582723" Foreground="White" Click="btnLogOut_Click"  />
-        <Button x:Name="btnClinicVisits" Content="Clinic Visits" HorizontalAlignment="Left" Margin="400,265,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnClinicVisits_Click"   />
-        <Button x:Name="btnSuppliesOverview" Content="Supplies Overview" HorizontalAlignment="Left" Margin="400,344,0,0" VerticalAlignment="Top" Height="73" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnSuppliesOverview_Click"/>
+        <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="543,20,0,0" VerticalAlignment="Top" Height="27" Width="119" Background="#FF582723" Foreground="White" Click="btnLogOut_Click"  />
+        <Button x:Name="btnSuppliesOverview" Content="Supplies Overview" HorizontalAlignment="Left" Margin="790,264,0,0" VerticalAlignment="Top" Height="74" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnSuppliesOverview_Click"/>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="523" Width="384" VerticalAlignment="Top" Fill="White" Opacity="0.8" Margin="40,165,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="9" Margin="790,725,0,0" Stroke="#FF582723" VerticalAlignment="Top" Width="10"/>
+        <Button x:Name="btnClinicVisits" Content="Log Clinic Visit" HorizontalAlignment="Left" Margin="89,314,0,0" VerticalAlignment="Top" Height="74" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnClinicVisits_Click"   />
+        <Button x:Name="btnTimeOut" Content="Patient Time Out" HorizontalAlignment="Left" Margin="89,430,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnTimeOut_Click" />
+        <Button x:Name="btnAddSupply" Content="Add Supply to Inventory" HorizontalAlignment="Left" Margin="790,343,0,0" VerticalAlignment="Top" Height="72" Width="286" BorderBrush="#FF707070" FontSize="20" Background="#FF582723" Foreground="White" Click="btnAddSupply_Click"/>
+        <Label Content="CLINIC LOGS" HorizontalAlignment="Left" Margin="152,214,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="#FF252525"/>
+        <Button x:Name="btnEmail" Content="Compose Email" HorizontalAlignment="Left" Margin="89,544,0,0" VerticalAlignment="Top" Height="73" Width="286" FontSize="20" Background="#FF582723" Foreground="White" Click="btnEmail_Click" />
+        <Rectangle HorizontalAlignment="Left" Height="10" Margin="1186,720,0,0" Stroke="#FF582723" VerticalAlignment="Top" Width="10"/>
 
 
     </Grid>
